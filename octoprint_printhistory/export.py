@@ -24,7 +24,7 @@ def exportHistoryData(self, exportType):
         if history_dict is not None:
             si = StringIO.StringIO()
 
-            headers = ['File name', 'Timestamp', 'Success', 'Print time', 'Filament length', 'Filament volume']
+            headers = ['File name', 'Timestamp', 'Success', 'Print time', 'Filament length', 'Filament volume', 'Student ID']
             if exportType == 'csv':
                 writer = csv.writer(si, quoting=csv.QUOTE_ALL)
                 writer.writerow(headers)
@@ -38,6 +38,7 @@ def exportHistoryData(self, exportType):
                     output.append(historyDetails["printTime"] if "printTime" in historyDetails and historyDetails["printTime"] is not None else "-")
                     output.append(historyDetails["filamentLength"] if "filamentLength" in historyDetails and historyDetails["filamentLength"] is not None else "-")
                     output.append(historyDetails["filamentVolume"] if "filamentVolume" in historyDetails and historyDetails["filamentVolume"] is not None else "-")
+                    output.append(historyDetails["studentid"] if "studentid" in historyDetails and historyDetails["studentid"] is not None else "-")
 
                     writer.writerow(output);
 
@@ -63,6 +64,7 @@ def exportHistoryData(self, exportType):
                     worksheet.write(row, 3, (historyDetails["printTime"] if "printTime" in historyDetails and historyDetails["printTime"] is not None else "-"))
                     worksheet.write(row, 4, (historyDetails["filamentLength"] if "filamentLength" in historyDetails and historyDetails["filamentLength"] is not None else "-"))
                     worksheet.write(row, 5, (historyDetails["filamentVolume"] if "filamentVolume" in historyDetails and historyDetails["filamentVolume"] is not None else "-"))
+                    worksheet.write(row, 6, (historyDetails["studentid"] if "studentid" in historyDetails and historyDetails["studentid"] is not None else "-"))
 
                     row += 1
 

@@ -78,6 +78,12 @@ def eventHandler(self, event, payload):
         rounded_timestamp = int(timestamp * 1000);
         data[rounded_timestamp] = currentFile
 
+        if "userdata" in fileData:
+            if "studentid" in fileData["userdata"]:
+                studentid = fileData["userdata"]["studentid"]
+                currentFile["studentid"] = studentid
+                self._logger.info("studentid: %s" % studentid)
+
         with open(self._history_file_path, "a") as f:
             try:
                 import yaml

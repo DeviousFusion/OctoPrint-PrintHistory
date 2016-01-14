@@ -14,11 +14,12 @@
 
 <table class="table table-striped table-hover table-condensed table-hover" style="clear: both;">
     <tr>
-        <th style="width: 38%">Filename</th>
+        <th style="width: 26%">Filename</th>
         <th style="width: 5%; text-align: center;"></th>
-        <th style="width: 22%">Date</th>
-        <th style="width: 15%;text-align: center;">Print time</th>
+        <th style="width: 19%">Date</th>
+        <th style="width: 12%;text-align: center;">Print time</th>
         <th style="width: 16%;text-align: center;">Filament usage</th>
+        <th style="width: 18%;text-align:center;">Student ID</th>
         <th style="width: 4%"></th>
     </tr>
     <tbody data-bind="foreach: listHelper.paginatedItems">
@@ -32,6 +33,7 @@
             <td data-bind="text: formatDate(timestamp), attr: { title: formatTimeAgo(timestamp) }"></td>
             <td style="text-align: center;" data-bind="text: formatDuration(printTime)"></td>
             <td style="text-align: center;" data-bind="text: filamentUsage"></td>
+            <td style="text-align: center;" data-bind="text: studentid"></td>
             <td>
                 <a href="#" class="icon-trash" data-bind="click: function() { if ($root.loginState.isUser() && !$root.isPrinting()) { $root.removeFile($data.key); } else { return; } }, visible: $root.loginState.isUser() && !$root.isPrinting()"></a>
             </td>

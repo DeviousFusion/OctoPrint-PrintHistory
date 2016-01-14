@@ -157,6 +157,7 @@ $(function() {
                     filamentUsage: (self.pureData[key].success == true) ? formatFilament({length: self.pureData[key].filamentLength, volume: self.pureData[key].filamentVolume}) : "-",
                     timestamp: self.pureData[key].timestamp,
                     printTime: self.pureData[key].printTime,
+                    studentid: self.pureData[key].studentid,
                     note: self.pureData[key].hasOwnProperty('note') ? self.pureData[key].note : ""
                 });
 
